@@ -1,0 +1,29 @@
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+
+        Scanner s = new Scanner(System.in);
+        int T = s.nextInt();
+        
+        for (int i = 0; i < T; i++) {
+            String input = s.next();
+            int suvoCount = 0;
+            int suvojitCount = 0;
+            Pattern suvo = Pattern.compile("SUVO");
+            Pattern suvojit = Pattern.compile("SUVOJIT");
+            Matcher m = suvo.matcher(input);
+            Matcher m2 = suvojit.matcher(input);
+            while(m.find()) {
+                suvoCount++;
+            }
+            while(m2.find()) {
+                suvojitCount++;
+            }
+            System.out.println("SUVO = " + (suvoCount - suvojitCount) + ", SUVOJIT = " + suvojitCount);
+        }
+    }
+}
